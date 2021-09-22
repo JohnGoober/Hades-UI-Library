@@ -1664,3 +1664,5 @@ function UserInterface.CreateWindow(windowType, windowIndexName, toggleKey, igno
 
 	return TempWindow
 end
+
+return UserInterface

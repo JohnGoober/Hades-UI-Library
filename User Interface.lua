@@ -956,7 +956,6 @@ UserInterface.Creation = {
 
 			local TempCombo = UserInterface.Creation.Merge({
 				AllowedControls = {
-					["Color"] = "Color",
 					["Label"] = "Label",
 					["Textbox"] = "Textbox",
 					["Button"] = "Button",

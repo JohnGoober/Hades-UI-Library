@@ -252,7 +252,7 @@ UserInterface.Creation = {
 				Content.BackgroundTransparency = 1.000
 				Content.ClipsDescendants = true
 				Content.Position = UDim2.new(0, 0, 0, 16)
-				Content.Size = UDim2.new(1, 0, 1, -47)
+				Content.Size = UDim2.new(1, 0, 1, -100)
 
 				UIPageLayout.Name = "UIPageLayout"
 				UIPageLayout.Parent = Content

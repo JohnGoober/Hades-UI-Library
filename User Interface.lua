@@ -306,8 +306,8 @@ UserInterface.Creation = {
 				Background.BackgroundTransparency = 0.250
 				Background.BorderSizePixel = 0
 				Background.ClipsDescendants = true
-				Background.Position = UDim2.new(0, 0, 0, -6)
-				Background.Size = UDim2.new(1, 0, 1, 6)
+				Background.Position = UDim2.new(0, 0, 0, 0)
+				Background.Size = UDim2.new(1, 0, 1, 0)
 
 				UICorner_3.CornerRadius = UDim.new(0, 3)
 				UICorner_3.Parent = Background
@@ -1082,7 +1082,6 @@ UserInterface.Creation = {
 				Page.BackgroundTransparency = 1.000
 				Page.Size = UDim2.new(1, 0, 1, 0)
 				Page.CanvasSize = UDim2.new(1, 0, 0, 0)
-				Page.AutomaticCanvasSize = Enum.AutomaticSize.Y
 				Page.ScrollBarThickness = 0
 
 				Content.Name = "Content"
@@ -1145,6 +1144,12 @@ UserInterface.Creation = {
 			end
 			Content.ChildAdded:Connect(ContentChildAdded)
 			Content_2.ChildAdded:Connect(ContentChildAdded)
+
+			local function ContentAbsoluteSize()
+				Page.CanvasSize = UDim2.new(1, 0, 0, ((Content.AbsoluteSize.Y > Content_2.AbsoluteSize.Y) and Content.AbsoluteSize.Y or Content_2.AbsoluteSize.Y) + 4)
+			end
+			Content:GetPropertyChangedSignal("AbsoluteSize"):Connect(ContentAbsoluteSize)
+			Content_2:GetPropertyChangedSignal("AbsoluteSize"):Connect(ContentAbsoluteSize)
 
 			local function SelectionButtonActivated(input, clickCount)
 				if clickCount <= 5 then

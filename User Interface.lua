@@ -448,19 +448,20 @@ UserInterface.Creation = {
 			tempControl.Color = defaultColor or Color3.fromRGB(255, 255, 255)
 			tempControl.Transparency = defaultTransparency or 0
 			tempControl.ThumbPosition = UDim2.fromScale(0.5, 0.5)
+			tempControl.EventCallback = eventCallback
 			tempControl.Connection = {
 				Color:GetPropertyChangedSignal("BackgroundColor3"):Connect(function()
 					tempControl.Color = Color.BackgroundColor3
 
-					if eventCallback then
-						eventCallback(Color)
+					if tempControl.EventCallback then
+						tempControl.EventCallback(Color)
 					end
 				end),
 				TextButton:GetPropertyChangedSignal("TextTransparency"):Connect(function()
 					tempControl.Transparency = TextButton.TextTransparency
 
-					if eventCallback then
-						eventCallback(Color)
+					if tempControl.EventCallback then
+						tempControl.EventCallback(Color)
 					end
 				end)
 			}
@@ -537,12 +538,13 @@ UserInterface.Creation = {
 				TextBox_2.Text = ""
 			end
 
+			tempControl.EventCallback = eventCallback
 			tempControl.Connection = TextBox_2.FocusLost:Connect(function(enterPressed)
 				if enterPressed then
 					UserInterface.CrossEffect(TextBox_2, UserInterface.Settings.MainColor)
 
-					if eventCallback then
-						eventCallback(tempControl)
+					if tempControl.EventCallback then
+						tempControl.EventCallback(tempControl)
 					end
 				end
 			end)
@@ -589,11 +591,12 @@ UserInterface.Creation = {
 				TextButton.Text = buttonTitle
 			end
 
+			tempControl.EventCallback = eventCallback
 			tempControl.Connection = TextButton.MouseButton1Click:Connect(function()
 				UserInterface.CrossEffect(TextButton, UserInterface.Settings.MainColor)
 
-				if eventCallback then
-					eventCallback(tempControl)
+				if tempControl.EventCallback then
+					tempControl.EventCallback(tempControl)
 				end
 			end)
 			tempControl.Value = Button
@@ -677,6 +680,7 @@ UserInterface.Creation = {
 			end
 
 			tempControl.Checked = checked or false
+			tempControl.EventCallback = eventCallback
 			tempControl.Connection = TextButton.MouseButton1Click:Connect(function()
 				tempControl.Checked = not tempControl.Checked
 
@@ -684,8 +688,8 @@ UserInterface.Creation = {
 
 				Thumb.Visible = tempControl.Checked
 
-				if eventCallback then
-					eventCallback(tempControl, tempControl.Checked)
+				if tempControl.EventCallback then
+					tempControl.EventCallback(tempControl, tempControl.Checked)
 				end
 			end)
 			tempControl.Value = Check
@@ -776,6 +780,7 @@ UserInterface.Creation = {
 			tempControl.Min = sliderMin
 			tempControl.Max = sliderMax
 			tempControl.Val = sliderValue
+			tempControl.EventCallback = eventCallback
 			tempControl.Connection = TextButton.MouseButton1Click:Connect(function()
 				if UserInterface.Input.ControlDown then
 					TextBox:CaptureFocus()
@@ -790,8 +795,8 @@ UserInterface.Creation = {
 
 				UserInterface.Tween(Thumb, 0.15, { Size = UDim2.fromScale((tempControl.Val - tempControl.Min) / (tempControl.Max - tempControl.Min), 1) })
 
-				if eventCallback then
-					eventCallback(tempControl, tempControl.Val)
+				if tempControl.EventCallback then
+					tempControl.EventCallback(tempControl, tempControl.Val)
 				end
 			end)
 			tempControl.Value = Slider
@@ -926,12 +931,13 @@ UserInterface.Creation = {
 
 			tempControl.Content = Content
 			tempControl.Toggled = false
+			tempControl.EventCallback = eventCallback
 			tempControl.Connection = TextButton.MouseButton1Click:Connect(function()
 				tempControl.Toggled = not tempControl.Toggled
 				UserInterface.Tween(Combo, 0.15, { Size = UDim2.new(1, 0, 0, 16 + 82 * (tempControl.Toggled and 1 or 0)) }, nil, false)
 
-				if eventCallback then
-					eventCallback(tempControl, tempControl)
+				if tempControl.EventCallback then
+					tempControl.EventCallback(tempControl, tempControl)
 				end
 			end)
 
@@ -1192,7 +1198,7 @@ UserInterface.Creation = {
 
 function UserInterface.CreateScreenGui()
 	if not UserInterface.Instances.ScreenGui then
-		UserInterface.Instances.ScreenGui = Instance.new("ScreenGui", game.CoreGui)
+		UserInterface.Instances.ScreenGui = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
 
 		UserInterface.Instances.ScreenGui.Name = "UILibrary"
 		UserInterface.Instances.ScreenGui.IgnoreGuiInset = true

@@ -1198,7 +1198,7 @@ UserInterface.Creation = {
 
 function UserInterface.CreateScreenGui()
 	if not UserInterface.Instances.ScreenGui then
-		UserInterface.Instances.ScreenGui = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
+		UserInterface.Instances.ScreenGui = Instance.new("ScreenGui", game.CoreGui)
 
 		UserInterface.Instances.ScreenGui.Name = "UILibrary"
 		UserInterface.Instances.ScreenGui.IgnoreGuiInset = true

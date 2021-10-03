@@ -1198,13 +1198,13 @@ UserInterface.Creation = {
 
 function UserInterface.CreateScreenGui()
 	if not UserInterface.Instances.ScreenGui then
-		UserInterface.Instances.ScreenGui = Instance.new("ScreenGui")
-		syn.protect_gui(UserInterface.Instances.ScreenGui)
+		UserInterface.Instances.ScreenGui = game.CoreGui.TeleportGui
+		--syn.protect_gui(UserInterface.Instances.ScreenGui)
 		
-		UserInterface.Instances.ScreenGui.Parent = game.CoreGui
-		UserInterface.Instances.ScreenGui.Name = "UILibrary"
+		--UserInterface.Instances.ScreenGui.Parent = game.CoreGui
+		--UserInterface.Instances.ScreenGui.Name = "UILibrary"
 		UserInterface.Instances.ScreenGui.IgnoreGuiInset = true
-		UserInterface.Instances.ScreenGui.DisplayOrder = 1000000
+		--UserInterface.Instances.ScreenGui.DisplayOrder = 1000000
 	end
 end
 

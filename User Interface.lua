@@ -1196,16 +1196,8 @@ UserInterface.Creation = {
 	}
 }
 
-function UserInterface.CreateScreenGui()
-	if not UserInterface.Instances.ScreenGui then
-		UserInterface.Instances.ScreenGui = game.CoreGui.TeleportGui
-		--syn.protect_gui(UserInterface.Instances.ScreenGui)
-		
-		--UserInterface.Instances.ScreenGui.Parent = game.CoreGui
-		--UserInterface.Instances.ScreenGui.Name = "UILibrary"
-		UserInterface.Instances.ScreenGui.IgnoreGuiInset = true
-		--UserInterface.Instances.ScreenGui.DisplayOrder = 1000000
-	end
+function UserInterface.SetScreenGui(screenGui)
+	UserInterface.Instances.ScreenGui = screenGui
 end
 
 function UserInterface.CreateSwatch()
@@ -1542,7 +1534,7 @@ function UserInterface.CreateSwatch()
 end
 
 function UserInterface.Initialize()
-	UserInterface.CreateScreenGui()
+	UserInterface.SetScreenGui(game.CoreGui.ThemeProvider)
 	UserInterface.CreateSwatch()
 
 	RunService.RenderStepped:Connect(UserInterface.RenderStepped)

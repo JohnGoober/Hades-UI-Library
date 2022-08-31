@@ -140,6 +140,7 @@ UserInterface.Creation = {
 				TextLabel.TextSize = 10.000
 				TextLabel.TextStrokeTransparency = 1.000
 				TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+				TextLabel.TextYAlignment = Enum.TextYAlignment.Center
 
 				Resize.Name = "Resize"
 				Resize.Parent = Panel
@@ -289,6 +290,7 @@ UserInterface.Creation = {
 				TextLabel.TextSize = 10.000
 				TextLabel.TextStrokeTransparency = 1.000
 				TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+				TextLabel.TextYAlignment = Enum.TextYAlignment.Center
 
 				Selectionbar.Name = "Selectionbar"
 				Selectionbar.Parent = Form

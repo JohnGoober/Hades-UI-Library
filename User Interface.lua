@@ -286,14 +286,8 @@ UserInterface.Creation = {
 				TextLabel.Font = Enum.Font.Arial
 				TextLabel.Text = formTitle
 				TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-<<<<<<< HEAD
 				TextLabel.TextSize = 10.000
 				TextLabel.TextStrokeTransparency = 1.000
-=======
-				TextLabel.TextSize = 14.000
-				TextLabel.TextStrokeColor3 = UserInterface.Settings.SecondaryColor
-				TextLabel.TextStrokeTransparency = 0.500
->>>>>>> 132a87b8b2a3e14df80f19fddf13d28500feef64
 				TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
 				Selectionbar.Name = "Selectionbar"

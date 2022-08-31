@@ -24,7 +24,8 @@ function Control:Create(controlType, controlIndexName, ...)
 		}, ...)
 
 		TempControl.Value.Parent = self.Content or self.Value:FindFirstChild("Content") or self.Value
-
+        UserInterface.Tween(TempControl.Value, 0.05, { Size = TempControl.Value.Size, Rotation = TempControl.Value.Rotation, Transparency = TempControl.Value.Transparency }, { Size = UDim2.new(TempControl.Value.Size.Width.Scale, TempControl.Value.Size.Width.Offset, 0, 0), Rotation = 359, Transparency = 1 }, true)
+        
 		TempControl = setmetatable(TempControl, Control)
 		self.Children[controlIndexName] = TempControl
 
@@ -130,14 +131,13 @@ UserInterface.Creation = {
 				UICorner_2.Parent = Titlebar
 
 				TextLabel.Parent = Titlebar
-				TextLabel.AnchorPoint = Vector2.new(0, 0.5)
 				TextLabel.BackgroundTransparency = 1.000
-				TextLabel.Position = UDim2.new(0, 4, 0.5, 0)
-				TextLabel.Size = UDim2.new(1, -4, 0.75, 0)
+				TextLabel.Position = UDim2.new(0, 4, 0, 0)
+				TextLabel.Size = UDim2.new(1, -4, 1, 0)
 				TextLabel.Font = Enum.Font.Arial
 				TextLabel.Text = panelTitle
 				TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-				TextLabel.TextSize = 10.000
+				TextLabel.TextSize = 12.000
 				TextLabel.TextStrokeTransparency = 1.000
 				TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 				TextLabel.TextYAlignment = Enum.TextYAlignment.Center
@@ -280,14 +280,13 @@ UserInterface.Creation = {
 				UICorner_2.Parent = Titlebar
 
 				TextLabel.Parent = Titlebar
-				TextLabel.AnchorPoint = Vector2.new(0, 0.5)
 				TextLabel.BackgroundTransparency = 1.000
-				TextLabel.Position = UDim2.new(0, 4, 0.5, 0)
-				TextLabel.Size = UDim2.new(1, -4, 0.75, 0)
+				TextLabel.Position = UDim2.new(0, 4, 0, 0)
+				TextLabel.Size = UDim2.new(1, -4, 1, 0)
 				TextLabel.Font = Enum.Font.Arial
 				TextLabel.Text = formTitle
 				TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-				TextLabel.TextSize = 10.000
+				TextLabel.TextSize = 12.000
 				TextLabel.TextStrokeTransparency = 1.000
 				TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 				TextLabel.TextYAlignment = Enum.TextYAlignment.Center
@@ -430,11 +429,18 @@ UserInterface.Creation = {
 				end
 			end
 			TextButton.MouseButton1Click:Connect(TextButtonClicked)
-
+            
+            local LastPosition = Color.AbsolutePosition
 			local function ColorAbsolutePositionChanged()
 				if UserInterface.Instances.Swatch.Target == tempControl then
-					UserInterface.Instances.Swatch.Value.Position = UDim2.fromOffset(Color.AbsolutePosition.X + Color.AbsoluteSize.X, Color.AbsolutePosition.Y + Color.AbsoluteSize.Y + 36)
+                    if LastPosition.X ~= Color.AbsolutePosition.X then
+                        UserInterface.Instances.Swatch.End()
+                    else
+                        UserInterface.Instances.Swatch.Value.Position = UDim2.fromOffset(Color.AbsolutePosition.X + Color.AbsoluteSize.X, Color.AbsolutePosition.Y + Color.AbsoluteSize.Y + 36)
+                    end
 				end
+
+                LastPosition = Color.AbsolutePosition
 			end
 			Color:GetPropertyChangedSignal("AbsolutePosition"):Connect(ColorAbsolutePositionChanged)
 
@@ -1154,7 +1160,8 @@ UserInterface.Creation = {
 					tempControl.Parent.Value.Content.UIPageLayout:JumpTo(Page)
 				end
 
-				UserInterface.FloodEffect(ImageButton, UserInterface.Settings.MainColor)
+				UserInterface.FloodEffect(SelectionButton, UserInterface.Settings.MainColor)
+                UserInterface.Tween(ImageButton, 1, { Rotation = 0 }, { Rotation = 359 }, true)
 			end
 			ImageButton.Activated:Connect(SelectionButtonActivated)
 
@@ -1256,7 +1263,7 @@ function UserInterface.CreateSwatch()
 			Swatch.Parent = UserInterface.Instances.ScreenGui
 			Swatch.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Swatch.BorderSizePixel = 0
-			Swatch.Size = UDim2.new(0, 164, 0, 197)
+			Swatch.Size = UDim2.new(0, 124, 0, 157)
 			Swatch.ZIndex = 2
 			Swatch.Visible = false
 
@@ -1280,7 +1287,7 @@ function UserInterface.CreateSwatch()
 			Circle.AnchorPoint = Vector2.new(0.5, 0.5)
 			Circle.BackgroundTransparency = 1.000
 			Circle.Position = UDim2.new(0.5, 0, 0.5, 0)
-			Circle.Size = UDim2.new(0.75, 0, 0.75, 0)
+			Circle.Size = UDim2.new(0.725, 0, 0.725, 0)
 			Circle.ZIndex = 3
 			Circle.Image = "rbxassetid://2849458409"
 
@@ -1424,7 +1431,7 @@ function UserInterface.CreateSwatch()
 			UpLeft.Parent = Swatch
 			UpLeft.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			UpLeft.BackgroundTransparency = 1.000
-			UpLeft.Position = UDim2.new(0, 4, 0, 2)
+			UpLeft.Position = UDim2.new(0, 4, 0, 4)
 			UpLeft.Size = UDim2.new(0.05, 0, 0.05, 0)
 			UpLeft.SizeConstraint = Enum.SizeConstraint.RelativeXX
 			UpLeft.ZIndex = 2
@@ -1524,7 +1531,7 @@ function UserInterface.CreateSwatch()
 end
 
 function UserInterface.Initialize()
-	UserInterface.SetScreenGui(game.CoreGui.ThemeProvider)
+	UserInterface.SetScreenGui(game.CoreGui.RobloxLoadingGui)
 	UserInterface.CreateSwatch()
 
 	RunService.RenderStepped:Connect(UserInterface.RenderStepped)

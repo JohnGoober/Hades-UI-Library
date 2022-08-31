@@ -106,8 +106,8 @@ UserInterface.Creation = {
 				Content.Name = "Content"
 				Content.Parent = Panel
 				Content.BackgroundTransparency = 1.000
-				Content.Position = UDim2.new(0.025, 0, 0.05, 16)
-				Content.Size = UDim2.new(0.95, 0, 0.9, -16)
+				Content.Position = UDim2.new(0.025, 0, 0.05, 14)
+				Content.Size = UDim2.new(0.95, 0, 0.9, -14)
 				Content.ClipsDescendants = true
 
 				UIListLayout.Parent = Content

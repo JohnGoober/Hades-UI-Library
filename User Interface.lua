@@ -119,7 +119,7 @@ UserInterface.Creation = {
 				Titlebar.Parent = Panel
 				Titlebar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				Titlebar.BorderSizePixel = 0
-				Titlebar.Size = UDim2.new(1, 0, 0, 16)
+				Titlebar.Size = UDim2.new(1, 0, 0, 10)
 				Titlebar.AutoButtonColor = false
 				Titlebar.Text = ""
 
@@ -138,8 +138,7 @@ UserInterface.Creation = {
 				TextLabel.Text = panelTitle
 				TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 				TextLabel.TextSize = 10.000
-				TextLabel.TextStrokeColor3 = UserInterface.Settings.MainColor
-				TextLabel.TextStrokeTransparency = 0.500
+				TextLabel.TextStrokeTransparency = 1.000
 				TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
 				Resize.Name = "Resize"
@@ -269,7 +268,7 @@ UserInterface.Creation = {
 				Titlebar.Parent = Form
 				Titlebar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				Titlebar.BorderSizePixel = 0
-				Titlebar.Size = UDim2.new(1, 0, 0, 16)
+				Titlebar.Size = UDim2.new(1, 0, 0, 10)
 				Titlebar.AutoButtonColor = false
 				Titlebar.Text = ""
 
@@ -287,9 +286,14 @@ UserInterface.Creation = {
 				TextLabel.Font = Enum.Font.Arial
 				TextLabel.Text = formTitle
 				TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+<<<<<<< HEAD
 				TextLabel.TextSize = 10.000
+				TextLabel.TextStrokeTransparency = 1.000
+=======
+				TextLabel.TextSize = 14.000
 				TextLabel.TextStrokeColor3 = UserInterface.Settings.SecondaryColor
 				TextLabel.TextStrokeTransparency = 0.500
+>>>>>>> 132a87b8b2a3e14df80f19fddf13d28500feef64
 				TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
 				Selectionbar.Name = "Selectionbar"
@@ -488,7 +492,6 @@ UserInterface.Creation = {
 				TextLabel.Text = labelTitle
 				TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 				TextLabel.TextSize = 10.000
-				TextLabel.TextStrokeColor3 = Color3.fromRGB(255, 100, 100)
 				TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 			end
 
@@ -532,8 +535,7 @@ UserInterface.Creation = {
 				TextBox_2.PlaceholderColor3 = Color3.fromRGB(200, 200, 200)
 				TextBox_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 				TextBox_2.TextSize = 10.000
-				TextBox_2.TextStrokeColor3 = Color3.fromRGB(125, 125, 125)
-				TextBox_2.TextStrokeTransparency = 0.500
+				TextBox_2.TextStrokeTransparency = 1.000
 				TextBox_2.PlaceholderText = textboxPlaceholder
 				TextBox_2.Text = ""
 			end
@@ -586,8 +588,7 @@ UserInterface.Creation = {
 				TextButton.Font = Enum.Font.Arial
 				TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 				TextButton.TextSize = 10.000
-				TextButton.TextStrokeColor3 = Color3.fromRGB(125, 125, 125)
-				TextButton.TextStrokeTransparency = 0.500
+				TextButton.TextStrokeTransparency = 1.000
 				TextButton.Text = buttonTitle
 			end
 
@@ -660,8 +661,7 @@ UserInterface.Creation = {
 				TextLabel.Text = checkTitle
 				TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 				TextLabel.TextSize = 10.000
-				TextLabel.TextStrokeColor3 = Color3.fromRGB(125, 125, 125)
-				TextLabel.TextStrokeTransparency = 0.500
+				TextLabel.TextStrokeTransparency = 1.000
 				TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
 				Thumb.Name = "Thumb"
@@ -773,8 +773,7 @@ UserInterface.Creation = {
 				TextBox.Text = sliderValue
 				TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 				TextBox.TextSize = 10.000
-				TextBox.TextStrokeColor3 = Color3.fromRGB(125, 125, 125)
-				TextBox.TextStrokeTransparency = 0.500
+				TextBox.TextStrokeTransparency = 1.000
 			end
 
 			tempControl.Min = sliderMin
@@ -853,8 +852,7 @@ UserInterface.Creation = {
 				TextButton.Text = comboTitle
 				TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 				TextButton.TextSize = 10.000
-				TextButton.TextStrokeColor3 = Color3.fromRGB(125, 125, 125)
-				TextButton.TextStrokeTransparency = 0.500
+				TextButton.TextStrokeTransparency = 1.000
 
 				Frame.Parent = Combo
 				Frame.AnchorPoint = Vector2.new(0.5, 0)
@@ -913,8 +911,7 @@ UserInterface.Creation = {
 				TextBox.Text = ""
 				TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 				TextBox.TextSize = 10.000
-				TextBox.TextStrokeColor3 = Color3.fromRGB(125, 125, 125)
-				TextBox.TextStrokeTransparency = 0.500
+				TextBox.TextStrokeTransparency = 1.000
 
 				ImageLabel.Parent = TextBox
 				ImageLabel.AnchorPoint = Vector2.new(0, 0.5)
@@ -1023,8 +1020,7 @@ UserInterface.Creation = {
 				TextLabel.Text = groupTitle
 				TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 				TextLabel.TextSize = 10.000
-				TextLabel.TextStrokeColor3 = UserInterface.Settings.SecondaryColor
-				TextLabel.TextStrokeTransparency = 0.500
+				TextLabel.TextStrokeTransparency = 1.000
 				TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
 				UICorner_2.CornerRadius = UDim.new(0, 3)
@@ -1391,8 +1387,7 @@ function UserInterface.CreateSwatch()
 			TextBox.Text = "0"
 			TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 			TextBox.TextSize = 10.000
-			TextBox.TextStrokeColor3 = Color3.fromRGB(125, 125, 125)
-			TextBox.TextStrokeTransparency = 0.500
+			TextBox.TextStrokeTransparency = 1.000
 
 			TextBox_2.Name = "TextBox"
 			TextBox_2.Parent = Swatch
@@ -1427,8 +1422,7 @@ function UserInterface.CreateSwatch()
 			TextBox_3.Text = "255 255 255"
 			TextBox_3.TextColor3 = Color3.fromRGB(255, 255, 255)
 			TextBox_3.TextSize = 10.000
-			TextBox_3.TextStrokeColor3 = Color3.fromRGB(125, 125, 125)
-			TextBox_3.TextStrokeTransparency = 0.500
+			TextBox_3.TextStrokeTransparency = 1.000
 
 			UpLeft.Name = "UpLeft"
 			UpLeft.Parent = Swatch

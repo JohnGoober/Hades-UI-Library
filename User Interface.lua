@@ -790,6 +790,7 @@ UserInterface.Creation = {
 					tempControl.Val = math.clamp(tonumber(TextBox.Text), tempControl.Min, tempControl.Max)
 					TextBox.Text = tempControl.Val
 				else
+					print(UserInterface.Input.IsMouseDown())
 					while UserInterface.Input.IsMouseDown() do
 						tempControl.Val = math.clamp(((tempControl.Max - tempControl.Min) * ((Mouse.X - Frame.AbsolutePosition.X) / Frame.AbsoluteSize.X)) + tempControl.Min, tempControl.Min, tempControl.Max)
 						TextBox.Text = math.floor(tempControl.Val)

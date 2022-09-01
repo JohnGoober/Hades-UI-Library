@@ -1532,7 +1532,6 @@ end
 
 function UserInterface.Initialize()
 	game.CoreGui.RobloxLoadingGui.IgnoreGuiInset = true
-	game.CoreGui.RobloxLoadingGui.IgnoreGuiInset = true
 	UserInterface.SetScreenGui(game.CoreGui.RobloxLoadingGui)
 
 	UserInterface.CreateSwatch()

@@ -783,8 +783,6 @@ UserInterface.Creation = {
 			tempControl.Val = sliderValue
 			tempControl.EventCallback = eventCallback
 			tempControl.Connection = TextButton.MouseButton1Click:Connect(function()
-				print(UserInterface.Input.IsMouseDown())
-
 				if UserInterface.Input.ControlDown then
 					local OldValue = TextBox.Text
 
@@ -799,14 +797,16 @@ UserInterface.Creation = {
 					else
 						TextBox.Text = OldValue
 					end
-				end
-				
+				else
+					repeat wait() until UserInterface.Input.IsMouseDown()
+
 					while UserInterface.Input.IsMouseDown() do
 						tempControl.Val = math.clamp(((tempControl.Max - tempControl.Min) * ((Mouse.X - Frame.AbsolutePosition.X) / Frame.AbsoluteSize.X)) + tempControl.Min, tempControl.Min, tempControl.Max)
 						TextBox.Text = math.floor(tempControl.Val)
 
 						RunService.RenderStepped:Wait()
 					end
+				end
 
 				UserInterface.Tween(Thumb, 0.15, { Size = UDim2.fromScale((tempControl.Val - tempControl.Min) / (tempControl.Max - tempControl.Min), 1) })
 

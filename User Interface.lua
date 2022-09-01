@@ -789,7 +789,7 @@ UserInterface.Creation = {
 					TextBox:CaptureFocus()
 					TextBox.FocusLost:Wait()
 
-					if TextBox.Text then
+					if TextBox.Text ~= nil then
 						tempControl.Val = math.clamp(tonumber(TextBox.Text), tempControl.Min, tempControl.Max)
 						TextBox.Text = tempControl.Val
 					end

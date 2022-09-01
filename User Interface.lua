@@ -784,11 +784,17 @@ UserInterface.Creation = {
 			tempControl.EventCallback = eventCallback
 			tempControl.Connection = TextButton.MouseButton1Click:Connect(function()
 				if UserInterface.Input.ControlDown then
+					local OldValue = TextBox.Text
+
 					TextBox:CaptureFocus()
 					TextBox.FocusLost:Wait()
 
-					tempControl.Val = math.clamp(tonumber(TextBox.Text), tempControl.Min, tempControl.Max)
-					TextBox.Text = tempControl.Val
+					if TextBox.Text then
+						tempControl.Val = math.clamp(tonumber(TextBox.Text), tempControl.Min, tempControl.Max)
+						TextBox.Text = tempControl.Val
+					end
+
+					TextBox.Text = OldValue
 				else
 					print(UserInterface.Input.IsMouseDown())
 					while UserInterface.Input.IsMouseDown() do

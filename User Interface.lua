@@ -25,7 +25,7 @@ function Control:Create(controlType, controlIndexName, ...)
 
 		TempControl.Value.Parent = self.Content or self.Value:FindFirstChild("Content") or self.Value
         UserInterface.Tween(TempControl.Value, 0.05, { Size = TempControl.Value.Size, Rotation = TempControl.Value.Rotation, Transparency = TempControl.Value.Transparency }, { Size = UDim2.new(TempControl.Value.Size.Width.Scale, TempControl.Value.Size.Width.Offset, 0, 0), Rotation = 359, Transparency = 1 }, true)
-        
+
 		TempControl = setmetatable(TempControl, Control)
 		self.Children[controlIndexName] = TempControl
 
@@ -1531,7 +1531,9 @@ function UserInterface.CreateSwatch()
 end
 
 function UserInterface.Initialize()
+	game.CoreGui.RobloxLoadingGui.IgnoreGuiInset = true
 	UserInterface.SetScreenGui(game.CoreGui.RobloxLoadingGui)
+
 	UserInterface.CreateSwatch()
 
 	RunService.RenderStepped:Connect(UserInterface.RenderStepped)

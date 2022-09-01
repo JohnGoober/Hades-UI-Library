@@ -788,9 +788,11 @@ UserInterface.Creation = {
 
 					TextBox:CaptureFocus()
 					TextBox.FocusLost:Wait()
+					
+					local NewValue = tonumber(TextBox.Text)
 
-					if TextBox.Text.len() > 0 then
-						tempControl.Val = math.clamp(tonumber(TextBox.Text), tempControl.Min, tempControl.Max)
+					if NewValue then
+						tempControl.Val = math.clamp(NewValue, tempControl.Min, tempControl.Max)
 						TextBox.Text = tempControl.Val
 					else
 						TextBox.Text = OldValue

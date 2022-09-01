@@ -24,7 +24,7 @@ function Control:Create(controlType, controlIndexName, ...)
 		}, ...)
 
 		TempControl.Value.Parent = self.Content or self.Value:FindFirstChild("Content") or self.Value
-        UserInterface.Tween(TempControl.Value, 5, { Size = TempControl.Value.Size, Rotation = TempControl.Value.Rotation, Transparency = TempControl.Value.Transparency }, { Size = UDim2.new(TempControl.Value.Size.Width.Scale, TempControl.Value.Size.Width.Offset, 0, 0), Rotation = 359, Transparency = 1 }, true)
+        UserInterface.Tween(TempControl.Value, 0.05, { Size = TempControl.Value.Size, Rotation = TempControl.Value.Rotation, Transparency = TempControl.Value.Transparency }, { Size = UDim2.new(TempControl.Value.Size.Width.Scale, TempControl.Value.Size.Width.Offset, 0, 0), Rotation = 359, Transparency = 1 }, true)
 
 		TempControl = setmetatable(TempControl, Control)
 		self.Children[controlIndexName] = TempControl
@@ -137,7 +137,7 @@ UserInterface.Creation = {
 				TextLabel.Font = Enum.Font.Arial
 				TextLabel.Text = panelTitle
 				TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-				TextLabel.TextSize = 12.000
+				TextLabel.TextSize = 10.000
 				TextLabel.TextStrokeTransparency = 1.000
 				TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 				TextLabel.TextYAlignment = Enum.TextYAlignment.Center
@@ -286,7 +286,7 @@ UserInterface.Creation = {
 				TextLabel.Font = Enum.Font.Arial
 				TextLabel.Text = formTitle
 				TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-				TextLabel.TextSize = 12.000
+				TextLabel.TextSize = 10.000
 				TextLabel.TextStrokeTransparency = 1.000
 				TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 				TextLabel.TextYAlignment = Enum.TextYAlignment.Center

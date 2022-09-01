@@ -789,12 +789,12 @@ UserInterface.Creation = {
 					TextBox:CaptureFocus()
 					TextBox.FocusLost:Wait()
 
-					if TextBox.Text ~= nil then
+					if TextBox.Text.len() > 0 then
 						tempControl.Val = math.clamp(tonumber(TextBox.Text), tempControl.Min, tempControl.Max)
 						TextBox.Text = tempControl.Val
+					else
+						TextBox.Text = OldValue
 					end
-
-					TextBox.Text = OldValue
 				else
 					print(UserInterface.Input.IsMouseDown())
 					while UserInterface.Input.IsMouseDown() do
